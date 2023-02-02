@@ -10,6 +10,7 @@ weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     
     messageOne.textContent = 'Loading...'
+    messageTwo.textContent = ''
 
     const location = search.value
 
@@ -24,8 +25,8 @@ weatherForm.addEventListener('submit', (e) => {
 
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.forecast.weather_descriptions + ', with a temperature of: ' +
-                    data.forecast.temperature + '°C, but it feel like as if it were: ' +
-                    data.forecast.feels_like
+                    data.forecast.temperature + '°C, it feels like: ' +
+                    data.forecast.feels_like + '°C.'
 
             }
         })
