@@ -52,7 +52,7 @@ app.get('/weather', (req, res) => {
 
     const address = req.query.address
     if (!address) {
-        return res.send({ error: 'An address needs to be provided' })
+        return res.send({ error: 'No address provided' })
     }
 
     //console.log('Location: ' + address)
