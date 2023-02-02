@@ -6,6 +6,7 @@ const hbs = require('hbs')
 
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -81,33 +82,33 @@ app.get('/weather', (req, res) => {
 
 // Guide snippet
 
-const address = process.argv[2]
+// const address = process.argv[2]
 
-if ( !address ) {
-    console.log('Please provide a location name')
-    } else {
+// if ( !address ) {
+//     console.log('Please provide a location name')
+//     } else {
 
-    console.log('Location: ' + address)
-    geocode(address, (error, { latitude, longitude, location}) => {
+//     console.log('Location: ' + address)
+//     geocode(address, (error, { latitude, longitude, location}) => {
 
-        if (error) {
-            return console.log(error)
-        }
-        // console.log('Error', error)
-        // console.log('Body', body)
-        forecast(latitude,longitude,'m' , (error, bodyForecast) => {
-            if (error) {
-                return console.log(error)
-            }
+//         if (error) {
+//             return console.log(error)
+//         }
+//         // console.log('Error', error)
+//         // console.log('Body', body)
+//         forecast(latitude,longitude,'m' , (error, bodyForecast) => {
+//             if (error) {
+//                 return console.log(error)
+//             }
 
-            console.log('Error', error)
-            console.log('Body', bodyForecast)
-            console.log(location)
+//             console.log('Error', error)
+//             console.log('Body', bodyForecast)
+//             console.log(location)
         
-        })
+//         })
 
-    })
-}
+//     })
+// }
 
 //
 
@@ -134,6 +135,6 @@ app.get('*',(req, res) => {
      })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port + '.')
 })
